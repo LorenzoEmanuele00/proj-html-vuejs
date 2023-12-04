@@ -33,7 +33,7 @@ export default {
 <template>
 
 <AppHeader :menu="menu" :social="social"/>
-
+<AppFooter :menu="menu" :social="social"/>
   
 </template>
 
