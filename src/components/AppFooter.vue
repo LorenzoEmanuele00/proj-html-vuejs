@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-    
+
     <!-- SUBSCRIBE SECTION -->
 <section class="upper d-flex justify-content-center align-items-center">
     <div class="small-container text-center">
@@ -43,6 +43,36 @@ export default {
 <!-- IMAGE STRIP SECTION -->
 <section class="middle d-flex align-items-start">
     <img v-for="image in stripImages" :src="getImagePath(image)" alt="food image" class="img-dim mt-4">
+</section>
+
+<!-- BOTTOM SQUARES SECTION -->
+<section class="bottom my_container d-flex">
+
+    <!-- LOGO AND SOCIALS -->
+    <div class="square bord">
+        <img src="../assets/img/avada-food-logo-mob-2x.png" alt="avada food logo" class="foot-logo">
+        <a v-for="link in social" href="" :class="link" class="ps-3 socials"></a>
+    </div>
+
+    <!-- MENU -->
+    <div class="square bord">
+        <a v-for="link in menu" href="" class="d-block menu">{{ link !== "Home" ? link : '' }}</a>
+    </div>
+
+    <!-- CONTACTS -->
+    <div class="square bord">
+        <h6 class="mb-4">CONTACT</h6>
+        <p><i class="fa-solid fa-location-dot mt-1"></i> 775 New York Ave, Broklyn, Kings, New York 11203</p>
+        <p><i class="fa-solid fa-phone mt-1"></i>+0100-505-0000</p>
+        <p><i class="fa-solid fa-envelope mt-1"></i>info@your-domain.com</p>
+    </div>
+
+    <!-- DOWNLOAD -->
+    <div class="square">
+        <h6 class="mb-4">GET YOUR APP</h6>
+        <img class="mb-3" src="../assets/img/download-android.png" alt="download android">
+        <img src="../assets/img/download-app-store.png" alt="download app store">
+    </div>
 </section>
 </template>
 
@@ -94,4 +124,39 @@ export default {
         width: calc(100% / 4);
     }
 }
+
+// BOTTOM SQUARE SECTION
+.my_container {
+    .square {
+        margin-top: 50px;
+        width: calc(100% / 4);
+        padding: 10px 25px 0 25px;
+        &.bord {
+            border-right: 1px dashed $silver;
+        }
+        p {
+            color: $text-grey;
+            display: flex;
+            gap: 20px;
+        }
+        h6 {
+            color: $orange;
+            letter-spacing: 3px;
+        }
+        .foot-logo {
+            scale: .9;
+        }
+        .socials {
+            margin-top: 30px;
+            padding-right: 5px;
+            color: $silver;
+        }
+        .menu {
+            color: black;
+            margin-bottom: 15px;
+        }
+    }
+    margin-bottom: 50px;
+}
+
 </style>
