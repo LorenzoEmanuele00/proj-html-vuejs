@@ -5,6 +5,20 @@ import AppMain from './components/AppMain.vue';
 export default {
   data() {
     return {
+      menu: [
+        "Home",
+        "Recipes",
+        "Places",
+        "Blog",
+        "About",
+        "Contact",      
+      ],
+      social: [
+      "fa-brands fa-facebook-f",
+      "fa-brands fa-instagram",
+      "fa-brands fa-twitter",
+      "fa-brands fa-youtube",
+      ],
     }
   },
   components: {
@@ -18,8 +32,15 @@ export default {
 
 <template>
 
+<AppHeader :menu="menu" :social="social"/>
+
+  
 </template>
 
-<style>
-
+<style lang="scss">
+@import "@fortawesome/fontawesome-free/css/all.css";
+.my_container {
+  margin: 0 auto;
+  width: 75%;
+}
 </style>
