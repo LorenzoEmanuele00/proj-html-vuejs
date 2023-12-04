@@ -5,7 +5,7 @@ export default {
         social: Array,
     },
     data() {
-        return {
+        return {    
             stripImages: [
                 "../assets/img/Yogurt-Nan.jpg",
                 "../assets/img/Mixed-fruits.jpg",
@@ -23,6 +23,8 @@ export default {
 </script>
 
 <template>
+    
+    <!-- SUBSCRIBE SECTION -->
 <section class="upper d-flex justify-content-center align-items-center">
     <div class="small-container text-center">
         <h2>Subscribe <span class="orange">&</span> Receive A Free eBook</h2>
@@ -36,6 +38,11 @@ export default {
         </div>   
         <p class="text-color p-minor">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
     </div>
+</section>
+
+<!-- IMAGE STRIP SECTION -->
+<section class="middle d-flex align-items-start">
+    <img v-for="image in stripImages" :src="getImagePath(image)" alt="food image" class="img-dim mt-4">
 </section>
 </template>
 
@@ -77,4 +84,14 @@ export default {
     }
 }
 
+// IMAGE STRIP SCETION
+.middle {
+    background-image: url('../assets/img/subscribe-sec-bg.png');
+    background-position-x: 50%;
+    background-position-y: bottom;
+    background-size: 120%;
+    img {
+        width: calc(100% / 4);
+    }
+}
 </style>

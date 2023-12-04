@@ -13,6 +13,8 @@ export default {
 
 <template>
 <div class="my_container">
+
+    <!-- TOP HEADER AND SOCIAL LINKS -->
     <section class="social-links d-flex justify-content-between my-3">
         <div>
             <a class="pe-4" href="">Download App <span class="orange px-1">iOS</span></a>
@@ -22,12 +24,18 @@ export default {
             <a v-for="link in social" href="" :class="link" class="px-3"></a>
         </div>
     </section>
+    
+    <!-- LOGO -->
     <div class="d-flex justify-content-around"><img src="../assets/img/avada-food-logo-2x.png" alt="avada food logo"></div>
+    
+    <!-- MENU -->
     <nav class="d-flex justify-content-around align-items-center my_container">
         <a v-for="link in menu" href="" class="d-block menu">{{ link }}</a>
         <i class="fa-solid fa-magnifying-glass search-lens mb-3"></i>
     </nav>
 </div>
+
+<!-- RIGHT SQUARES -->
 <div class="position-relative text-center">
     <div class="square sq1">
         <i class="fa-brands fa-atlassian"></i>
