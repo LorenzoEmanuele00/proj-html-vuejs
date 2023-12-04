@@ -46,7 +46,7 @@ export default {
 </section>
 
 <!-- BOTTOM SQUARES SECTION -->
-<section class="bottom my_container d-flex">
+<section id="info" class="bottom my_container d-flex">
 
     <!-- LOGO AND SOCIALS -->
     <div class="square bord">
@@ -73,6 +73,11 @@ export default {
         <img class="mb-3" src="../assets/img/download-android.png" alt="download android">
         <img src="../assets/img/download-app-store.png" alt="download app store">
     </div>
+</section>
+
+<section class="last position-relative py-4">
+    <a href="#top-page" class="rounded-circle">^</a>
+    <p class="m-0">Copyright 2012 - 2020 | Avada Theme by ThemeFusion | All Right Reserved | Powered by WorldPress</p>
 </section>
 </template>
 
@@ -158,5 +163,23 @@ export default {
     }
     margin-bottom: 50px;
 }
-
+.last {
+    text-align: center;
+    background-color: $wood-white;
+    a {
+        position: absolute;
+        left: 20px;
+        bottom: calc(50% - 20px);
+        text-align: center;
+        line-height: 40px;
+        width: 40px;
+        aspect-ratio: 1 / 1;
+        background-color: $text-grey;
+        color: white;
+        font-size: 1.3rem;
+    }
+    p {
+        font-size: .8rem;
+    }
+}
 </style>

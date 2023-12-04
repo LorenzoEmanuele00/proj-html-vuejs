@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-<div class="my_container">
+<div id="top-page" class="my_container">
 
     <!-- TOP HEADER AND SOCIAL LINKS -->
     <section class="social-links d-flex justify-content-between my-3">
