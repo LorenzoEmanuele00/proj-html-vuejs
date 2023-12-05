@@ -1,5 +1,9 @@
 <script>
+import AppCard from './AppCard.vue';
 export default {
+    components: {
+        AppCard,
+    },
     data() {
         return {
             foodieImg: [
@@ -51,11 +55,7 @@ export default {
             <hr>
         </div>
         <div class="d-flex justify-content-center align-items-center gap-4 px-4">
-            <div v-for="image in foodieImg" class="text-center">
-                <img :src="getImagePath(image.img)" alt="food image">
-                <h6 class="pt-3 pb-1 m-0">{{ image.txt }}</h6>
-                <p class="pb-2 m-0">{{ image.by }}</p>
-            </div>
+            <AppCard :imageArray="foodieImg"/>
         </div>
     </div>
 </div>
@@ -107,13 +107,6 @@ export default {
             width: 34%;
             border: .5px solid;
             opacity: .8;
-            color: $silver;
-        }
-        h6 {
-            color: $text-grey;
-        }
-        p {
-            font-size: .7rem;
             color: $silver;
         }
     }
