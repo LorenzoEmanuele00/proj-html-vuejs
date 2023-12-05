@@ -23,6 +23,16 @@ export default {
                     by: "By admin | March 25th, 2019"
                 }
             ],
+            recipeImg: [
+                "../assets/img/Mixed-fruits.jpg",
+                "../assets/img/r-rachel-park-366508-unsplash-min.jpg",
+                "../assets/img/r-michelle-tsang-500721-unsplash-min.jpg",
+                "../assets/img/quick-summer-drink-460x295.jpg",
+                "../assets/img/r-maarten-van-den-heuvel-400626-unsplash-min-460x295.jpg",
+                "../assets/img/perfect-cosmopolitan-460x295.jpg",
+                "../assets/img/fi2x-6-460x295.jpg",
+                "../assets/img/r-brooke-lark-96398-unsplash-min-460x295.jpg",
+            ]
         }
     },
     methods: {
@@ -58,6 +68,41 @@ export default {
             <AppCard :imageArray="foodieImg"/>
         </div>
     </div>
+
+    <div class="small_container text-center pb-5">
+        <h4 class="py-3">POPULAR RECIPES</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, minima culpa!</p>
+    </div>
+
+    <!-- POPULAR RECIPE SECTION -->
+    <div class="container-fluid my_container d-flex gap-5 pop-rec pb-5">
+        <div class="row row_big">
+            <div class="col">
+                <div class="my_card">
+                    <img src="../assets/img/Yogurt-Nan.jpg" alt="food image">
+                    <div class="p-4">
+                        <h5 class="m-0 py-1">Lunch Favourite with Salad, Naan And Beans</h5>
+                        <p>Bakery, Featured, Healty, Latest Recipes, Staff Picks</p>
+                        <hr>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, itaque cupiditate repudiandae necessitatibus amet cumque ipsam magnam, laborum fugiat, quaerat pariatur consequuntur quisquam totam. Quo accusamus dicta iusto cupiditate deserunt! Amet et voluptatibus commodi accusamus fugiat nobis? Earum neque sequi aliquid iste voluptate? Eveniet iure cupiditate nostrum quod unde officiis porro id rerum illo libero. Officiis cumque a suscipit tempore?</p>
+                        <a class="my_btn" href="">LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-2 row-gap-3">
+            <div v-for="image in recipeImg" class="col">
+                <img :src="getImagePath(image)" alt="food image">
+            </div>
+        </div>
+    </div>
+
+    <div class="small_container text-center pb-5 pt-5">
+        <h4 class="py-3">CULINARY COLLECTION</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, minima culpa!</p>
+    </div>
+
+    <!-- CULINARY COLLECTION SECTION -->
 </div>
 </template>
 
@@ -93,7 +138,7 @@ export default {
 .bg-b{
     background-color: $wood-white;
 
-// FOODIE JOURNAL SECTION
+    // FOODIE JOURNAL SECTION
     .foodie {
         background-color: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08), 0 4px 8px 0 rgba(0, 0, 0, 0.08);
@@ -106,9 +151,62 @@ export default {
         hr {
             width: 34%;
             border: .5px solid;
-            opacity: .8;
+            opacity: 0.4;
             color: $silver;
         }
+    }
+    .small_container {
+        width: 30%;
+        margin: 0 auto;
+        h4 {
+            color: $text-grey;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        p {
+            color: $text-grey;
+            font-size: .8rem;
+        }
+    }
+
+    // POPULAR RECIPE
+    .pop-rec {
+        .row_big {
+            width: 100%;
+            .col {
+                width: 100%;
+                padding: 0;
+                .my_card {
+                    background-color: white;
+                    h5 {
+                        font-size: 1.1rem;
+                        color: $text-grey;
+                    }
+                    p {
+                        font-size: .8rem;
+                        color: $silver;
+                        line-height: 1.4rem;
+                    }
+                    hr {
+                        opacity: .4;
+                        color: $silver;
+                    }
+                    .my_btn {
+                        background-color: $orange;
+                        color: white;
+                        font-size: .8rem;
+                        padding: 10px 20px;
+                    }
+                }
+            }
+        }
+        .row-cols-2 {
+            width: 100%;
+            .col {
+                width: calc(100% / 2);
+            }
+        }
+        
     }
 }
 </style>
