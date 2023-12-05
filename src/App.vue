@@ -33,6 +33,7 @@ export default {
 <template>
 
 <AppHeader :menu="menu" :social="social"/>
+<AppMain />
 <AppFooter :menu="menu" :social="social"/>
   
 </template>
@@ -41,6 +42,6 @@ export default {
 @import "@fortawesome/fontawesome-free/css/all.css";
 .my_container {
   margin: 0 auto;
-  width: 75%;
+  width: 70%;
 }
 </style>

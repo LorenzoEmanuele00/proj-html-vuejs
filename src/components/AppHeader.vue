@@ -15,7 +15,7 @@ export default {
 <div id="top-page" class="my_container">
 
     <!-- TOP HEADER AND SOCIAL LINKS -->
-    <section class="social-links d-flex justify-content-between my-3">
+    <section class="social-links d-flex justify-content-between mt-3">
         <div>
             <a class="pe-4" href="">Download App <span class="orange px-1">iOS</span></a>
             <a href="">Advertise with us</a>
@@ -29,7 +29,7 @@ export default {
     <div class="d-flex justify-content-around"><img src="../assets/img/avada-food-logo-2x.png" alt="avada food logo"></div>
     
     <!-- MENU -->
-    <nav class="d-flex justify-content-around align-items-center my_container">
+    <nav class="d-flex justify-content-around align-items-center my_container mb-2">
         <a v-for="link in menu" href="" class="d-block menu">{{ link }}</a>
         <i class="fa-solid fa-magnifying-glass search-lens mb-3"></i>
     </nav>
