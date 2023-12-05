@@ -6,7 +6,7 @@ export default {
         }
     },
     props: {
-        imageArray: Array,
+        image: Object,
     },
     methods: {
         getImagePath(image) {
@@ -19,11 +19,9 @@ export default {
 
 <template>
 
-<div v-for="image in imageArray" class="text-center">
     <img :src="getImagePath(image.img)" alt="food image">
-    <h6 class="pt-3 pb-1 m-0">{{ image.txt }}</h6>
-    <p class="pb-2 m-0">{{ image.by }}</p>
-</div>
+    <h6 class="pt-3 px-3 pb-1 m-0">{{ image.txt }}</h6>
+    <p class="pb-3 m-0">{{ image.by }}</p>
   
 </template>
 
