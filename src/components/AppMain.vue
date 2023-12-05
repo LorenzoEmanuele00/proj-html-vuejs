@@ -32,6 +32,40 @@ export default {
                 "../assets/img/perfect-cosmopolitan-460x295.jpg",
                 "../assets/img/fi2x-6-460x295.jpg",
                 "../assets/img/r-brooke-lark-96398-unsplash-min-460x295.jpg",
+            ],
+            stamps: [
+                {
+                    img: "../assets/img/drinks-recipes.png",
+                    txt: "DRINKS"
+                },
+                {
+                    img: "../assets/img/soups-recipes.png",
+                    txt: "SOUPS"
+                },
+                {
+                    img: "../assets/img/baking-recipes.png",
+                    txt: "BAKERY"
+                },
+                {
+                    img: "../assets/img/dinner-recipes.png",
+                    txt: "DINNER"
+                },
+                {
+                    img: "../assets/img/healthy-recipes.png",
+                    txt: "HEALTY"
+                },
+                {
+                    img: "../assets/img/staff-picks.png",
+                    txt: "STAFF PICKS"
+                },
+                {
+                    img: "../assets/img/premium-recipes.png",
+                    txt: "APPETISER"
+                },
+                {
+                    img: "../assets/img/quick-easy-recipes.png",
+                    txt: "QUICK & EASY"
+                },
             ]
         }
     },
@@ -97,12 +131,22 @@ export default {
         </div>
     </div>
 
-    <div class="small_container text-center pb-5 pt-5">
+    <div class="small_container text-center pb-4 pt-5">
         <h4 class="py-3">CULINARY COLLECTION</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, minima culpa!</p>
     </div>
 
     <!-- CULINARY COLLECTION SECTION -->
+    <div class="my_container container-fluid culinary pb-5">
+        <div class="row row-cols-4">
+            <div v-for="stamp in stamps" class="col text-center">
+                <img :src="getImagePath(stamp.img)" alt="stamps">
+                <h6>{{ stamp.txt }}</h6>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 </template>
 
@@ -207,6 +251,21 @@ export default {
             }
         }
         
+    }
+
+    // CULINARY SCETION
+    .culinary {
+        .row {
+            gap: 40px;
+            .col {
+                padding: 10px 50px;
+                width: calc((100% / 4) - 30px);
+                background-color: white;
+                h6 {
+                    font-size: .7rem;
+                }
+            }
+        }
     }
 }
 </style>
