@@ -25,8 +25,8 @@ export default {
 <template>
 
     <!-- SUBSCRIBE SECTION -->
-<section class="upper d-flex justify-content-center align-items-center">
-    <div class="small-container text-center">
+<section class="upper d-flex justify-content-center align-items-center py-5">
+    <div class="small-container text-center my-5">
         <h2>Subscribe <span class="orange">&</span> Receive A Free eBook</h2>
         <p class="text-color">Lorem ipsum dolor lorem lorem lorem lorem sit amet consectetur adipisicing elit. Dolorem harum dicta minus iusto.</p>
         <div class="text-color d-flex justify-content-between my-4">
@@ -87,7 +87,6 @@ export default {
     background-image: url('../assets/img/subscribe-sec-bg.png');
     background-position: 50%;
     background-size: 120%;
-    padding: 20px 0;
 }
 .small-container {
     width: 43%;
