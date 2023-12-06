@@ -214,8 +214,8 @@ export default {
         </div> 
 
         <div class=" my_container container-fluid p-0">
-            <div class="row g-0 gap-4">
-                <div class="col-8">
+            <div class="row g-0 gap-5">
+                <div class="col-7">
 
                     <!-- big POST  SECTION -->
                     <div class="my_card mb-3">
@@ -264,7 +264,7 @@ export default {
 
                     <!-- SOCIAL LINKS SECTION -->
                     <h6 class="follow pt-4 pb-2">Follow Us</h6>
-                    <div class="d-flex">
+                    <div class="d-flex w-100 flex-wrap">
                         <div v-for="link in social" class="social me-2 d-flex justify-content-center align-items-center">
                             <a href="" :class="link"></a>
                         </div>
@@ -468,7 +468,7 @@ export default {
         }
         .row {
             width: 100%;
-            .col-8 {
+            .col-7 {
                 .my_card {
                     background-color: white;
                     h5 {
@@ -584,6 +584,7 @@ export default {
                 }
                 .tweet {
                     background-color: white;
+                    width: 100%;
                     h4 {
                         color: $text-grey;
                     }
@@ -596,6 +597,8 @@ export default {
                         height: 30px;
                     }
                     .tweet-body {
+                        width: 85%;
+                        word-wrap: break-word;
                         .tag {
                             color: $silver;
                         }
