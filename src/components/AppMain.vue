@@ -1,6 +1,9 @@
 <script>
 import AppCard from './AppCard.vue';
 export default {
+    props: {
+        social: Array,
+    },
     components: {
         AppCard,
     },
@@ -98,6 +101,23 @@ export default {
                     txt: "5 Waterslide Restaurant in Instanbul fo Special Events",
                     by: "By admin | March 25th, 2019"
                 },
+            ],
+            postArray: [
+                {
+                    img: "../assets/img/single-post-img3.jpg",
+                    txt: "Food Corner: Top Japanese Restaurants for sushi",
+                    by: "March 25th, 2019"
+                },
+                {
+                    img: "../assets/img/fi-korean-food.jpg",
+                    txt: "Citu Guide: Singapore",
+                    by: "February 27th, 2019"
+                },
+                {
+                    img: "../assets/img/slide1-bg-150x150.jpg",
+                    txt: "6 Nutritional Tips to Help Burn Body Fat",
+                    by: "February 28th, 2019"
+                },
             ]
         }
     },
@@ -191,10 +211,13 @@ export default {
                 </div>
                 <a class="my_btn" href="">READ OUR BLOG<i class="fa-solid fa-book-open-reader ps-2"></i></a>
             </div>
-        </div>    
+        </div> 
+
         <div class=" my_container container-fluid p-0">
             <div class="row g-0 gap-4">
                 <div class="col-8">
+
+                    <!-- big POST  SECTION -->
                     <div class="my_card mb-3">
                         <img src="../assets/img/single-post-img3.jpg" alt="food image">
                         <div class="p-4">
@@ -220,6 +243,8 @@ export default {
                     </div>
                 </div>
                 <div class="col">
+
+                    <!-- ADV SECTION -->
                     <div class="adv text-center pb-4">
                         <img src="../assets/img/ad-bg.jpg" alt="">
                         <h4>VIEW OUR LATEST RECIPES</h4>
@@ -230,6 +255,71 @@ export default {
                         <a class="orange-link p-2 d-block"><i class="fa-solid fa-earth-americas pe-2"></i>VIEW ALL CITY GIUDES</a>
                     </div>
                     <hr>
+
+                    <!-- SEARCH -->
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput"><i class="fa-solid fa-magnifying-glass pe-3"></i>Search</label>
+                    </div>
+
+                    <!-- SOCIAL LINKS SECTION -->
+                    <h6 class="follow pt-4 pb-2">Follow Us</h6>
+                    <div class="d-flex">
+                        <div v-for="link in social" class="social me-2 d-flex justify-content-center align-items-center">
+                            <a href="" :class="link"></a>
+                        </div>
+                        <div class="social me-2 d-flex justify-content-center align-items-center">
+                            <a href="" class="fa-brands fa-pinterest-p"></a>
+                        </div>
+                    </div>
+
+                    <!-- small POST SECTION -->
+                    <div class="popular-recent mt-5">
+                        <div class="d-flex text-center">
+                            <h5 class="p-r_button">Popular</h5>
+                            <h5 class="p-r_button">Recent</h5>
+                        </div>    
+                        <div v-for="post in postArray" class="d-flex align-items-center pt-4">
+                            <img :src="getImagePath(post.img)" alt="" class="rounded-circle">
+                            <div class="ps-3">
+                                <h6 class="m-0">{{ post.txt }}</h6>
+                                <p class="m-0">{{ post.by }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TWEET SECTION -->
+                    <div class="tweet p-3 mt-5 rounded-3">
+                        <div class="tweet-top d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="d-inline-block m-0 pe-2">Tweets</h4>
+                                <a href="">by @Theme_Fusion</a>
+                            </div>
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+                        <div class="d-flex pt-3">
+                            <img class="tweet-logo me-2" src="../assets/img/3a74ce3d0532b7773b174c45ca3bd05a_normal.png" alt="">
+                            <div class="tweet-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h6 class="m-0">ThemeFusion</h6>
+                                        <p class="tag m-0">@Theme_Fusion</p>
+                                    </div>
+                                    <i class="fa-brands fa-twitter"></i>
+                                </div>
+                                <p class="text m-0">Do you need sublime WorldPress hosting for your next website? Take advantige of exclusive partners offers that we have secured just for you &lounch your site in seconds with <a href="">#avada</a> on WP Engine hosting & get 30% Off this Black Friday</p>
+                                <a href="">bit.ly/3kjLLe2#BlackFriday2020</a>
+                                <img class="pb-2 pt-4" src="../assets/img/En2TRxLW4AEiWUN.jpeg" alt="tweet image">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <i class="pe-3 fa-regular fa-heart"></i>
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </div>
+                                    <p class="hour">21<a class="h" href="">h</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -423,12 +513,12 @@ export default {
                 .adv {
                     position: relative;
                     h4 {
-                        width: 40%;
+                        width: 35%;
                         position: absolute;
                         left: 50%;
-                        top: 50%;
+                        top: 48%;
                         transform: translate(-50%, -50%);
-                        font-size: 1rem;
+                        font-size: 90%;
                         letter-spacing: 2px;
                     }
                 }
@@ -452,6 +542,74 @@ export default {
                 hr {
                     color: $silver;
                     opacity: .4;
+                }
+                .form-floating {
+                    font-size: .9rem;
+                    color: $silver;
+                }
+                .follow {
+                    color: $orange;
+                }
+                .social {
+                    width: 40px;
+                    aspect-ratio: 1 / 1;
+                    background-color: $wood-white-dark;
+                    border: .5px solid $silver;
+                    border-radius: 3px;
+                    a {
+                        scale: 1.3;
+                        color: $text-grey;
+                    }
+                }
+                .popular-recent {
+                    .p-r_button {
+                        width: calc(100% / 2);
+                        padding: 15px;
+                        border: .5px solid $silver;
+                        font-size: 1rem;
+                    }
+                    .rounded-circle {
+                        width: 55px;
+                        height: 55px;
+                    }
+                    h6 {
+                        line-height: 2rem;
+                        color: $text-grey;
+                    }
+                    p {
+                        padding-top: 5px;
+                        font-size: .9rem;
+                        color: $silver;
+                    }
+                }
+                .tweet {
+                    background-color: white;
+                    h4 {
+                        color: $text-grey;
+                    }
+                    a {
+                        color: $blue;
+                        font-size: .8rem;
+                    }
+                    .tweet-logo {
+                        width: 30px;
+                        height: 30px;
+                    }
+                    .tweet-body {
+                        .tag {
+                            color: $silver;
+                        }
+                        i {
+                            color: $silver;
+                        }
+                        .hour {
+                            color: $silver;
+                        }
+                        .text {
+                            font-size: .9rem;
+                            color: $text-grey;
+                        }
+                    }
                 }
             }
         }
