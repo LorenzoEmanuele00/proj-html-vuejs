@@ -27,14 +27,46 @@ export default {
                 }
             ],
             recipeImg: [
-                "../assets/img/Mixed-fruits.jpg",
-                "../assets/img/r-rachel-park-366508-unsplash-min.jpg",
-                "../assets/img/r-michelle-tsang-500721-unsplash-min.jpg",
-                "../assets/img/quick-summer-drink-460x295.jpg",
-                "../assets/img/r-maarten-van-den-heuvel-400626-unsplash-min-460x295.jpg",
-                "../assets/img/perfect-cosmopolitan-460x295.jpg",
-                "../assets/img/fi2x-6-460x295.jpg",
-                "../assets/img/r-brooke-lark-96398-unsplash-min-460x295.jpg",
+                {
+                    img: "../assets/img/Mixed-fruits.jpg",
+                    txt: "Food Corner: Top Japanese Restaurants for sushi",
+                    flag: false
+                },
+                {
+                    img: "../assets/img/r-rachel-park-366508-unsplash-min.jpg",
+                    txt: "Roundup: My New Favourite Recipes For Healty Living",
+                    flag: false
+                },
+                {
+                    img: "../assets/img/r-michelle-tsang-500721-unsplash-min.jpg",
+                    txt: "Why These Toast with Tea are My New Favourite",
+                    flag: false
+                },
+                {
+                    img: "../assets/img/r-maarten-van-den-heuvel-400626-unsplash-min-460x295.jpg",
+                    txt: "Food Corner: Top Japanese Restaurants for sushi",
+                    flag: false
+                },
+                {
+                    img: "../assets/img/fi-roundup.jpg",
+                    txt: "Roundup: My New Favourite Recipes For Healty Living",
+                    flag: false
+                },
+                {
+                    img: "../assets/img/perfect-cosmopolitan-460x295.jpg",
+                    txt: "Why These Toast with Tea are My New Favourite",
+                    flag: false
+                },
+                {
+                    img: "../assets/img/fi2x-6-460x295.jpg",
+                    txt: "Food Corner: Top Japanese Restaurants for sushi",
+                    flag: false
+                },
+                {
+                    img: "../assets/img/r-brooke-lark-96398-unsplash-min-460x295.jpg",
+                    txt: "Roundup: My New Favourite Recipes For Healty Living",
+                    flag: false
+                },
             ],
             stamps: [
                 {
@@ -118,7 +150,9 @@ export default {
                     txt: "6 Nutritional Tips to Help Burn Body Fat",
                     by: "February 28th, 2019"
                 },
-            ]
+            ],
+            flagRecipe: false,
+            flagPR: "popular",
         }
     },
     methods: {
@@ -156,18 +190,24 @@ export default {
             </div>
         </div>
     </div>
-    
+
     <!-- POPULAR RECIPE SECTION -->
     <div class="small_container text-center pb-5">
         <h4 class="py-3">POPULAR RECIPES</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, minima culpa!</p>
     </div>
 
-    <div class=" my_container container-fluid pe-0 d-flex gap-5 pop-rec pb-5">
+    <div class=" my_container container-fluid pe-0 d-flex gap-5 pop-reci pb-5">
         <div class="row row_big">
             <div class="col">
                 <div class="my_card">
-                    <img src="../assets/img/Yogurt-Nan.jpg" alt="food image">
+                    <div class="position-relative" @mouseenter="flagRecipe = true" @mouseleave="flagRecipe = false">
+                        <img src="../assets/img/Yogurt-Nan.jpg" alt="food image">
+                        <div class="justify-content-center align-items-center text-center flex-column px-3 py-1" :class="flagRecipe ? 'd-flex over' : 'd-none'">
+                            <div class="mb-4 rounded-circle d-flex justify-content-center align-items-center text-center"><i class="fa-solid fa-link"></i></div>
+                            <h5>Lunch Favourite with Salad, Naan And Beans</h5>
+                        </div>
+                    </div>
                     <div class="p-4">
                         <h5 class="m-0 py-1">Lunch Favourite with Salad, Naan And Beans</h5>
                         <p>Bakery, Featured, Healty, Latest Recipes, Staff Picks</p>
@@ -179,8 +219,14 @@ export default {
             </div>
         </div>
         <div class="row row-cols-2 row-gap-3">
-            <div v-for="image in recipeImg" class="col">
-                <img :src="getImagePath(image)" alt="food image">
+            <div class="col" v-for="image in recipeImg">
+                <div class="position-relative"  @mouseenter="image.flag = true" @mouseleave="image.flag = false">
+                    <img :src="getImagePath(image.img)" alt="food image">
+                    <div class="justify-content-center align-items-center text-center flex-column px-2 py-1" :class="image.flag ? 'd-flex over' : 'd-none'">
+                        <div class="mb-1 rounded-circle d-flex justify-content-center align-items-center text-center"><i class="fa-solid fa-link"></i></div>
+                        <h3>{{ image.txt }}</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -193,9 +239,9 @@ export default {
 
     <div class="my_container container-fluid culinary pb-5">
         <div class="row row-cols-4">
-            <div v-for="stamp in stamps" class="col text-center">
-                <img :src="getImagePath(stamp.img)" alt="stamps">
-                <h6>{{ stamp.txt }}</h6>
+            <div v-for="stamp in stamps" class="col text-center pb-2">
+                <img class="" :src="getImagePath(stamp.img)" alt="stamps">
+                <h6 class="m-0 p-2">{{ stamp.txt }}</h6>
             </div>
         </div>
 
@@ -247,11 +293,11 @@ export default {
                     <!-- ADV SECTION -->
                     <div class="adv text-center pb-4">
                         <img src="../assets/img/ad-bg.jpg" alt="">
-                        <h4>VIEW OUR LATEST RECIPES</h4>
+                        <h4 class="m-0">VIEW OUR LATEST RECIPES</h4>
                     </div>
                     <div class="city text-center">
                         <img src="../assets/img/singapore-featured-image.jpg" alt="">
-                        <h4 class="guide p-2">City Guide: Singapore</h4>
+                        <h4 class="guide p-3">City Guide: Singapore</h4>
                         <a class="orange-link p-2 d-block"><i class="fa-solid fa-earth-americas pe-2"></i>VIEW ALL CITY GIUDES</a>
                     </div>
                     <hr>
@@ -276,8 +322,8 @@ export default {
                     <!-- small POST SECTION -->
                     <div class="popular-recent mt-5">
                         <div class="d-flex text-center">
-                            <h5 class="p-r_button">Popular</h5>
-                            <h5 class="p-r_button">Recent</h5>
+                            <h5 class="p-r_button" @click='flagPR="popular"' :class='flagPR === "popular" ? "active" : ""'>Popular</h5>
+                            <h5 class="p-r_button" @click='flagPR="recent"' :class='flagPR === "recent" ? "active" : ""'>Recent</h5>
                         </div>    
                         <div v-for="post in postArray" class="d-flex align-items-center pt-4">
                             <img :src="getImagePath(post.img)" alt="" class="rounded-circle">
@@ -391,7 +437,7 @@ export default {
     }
 
     // POPULAR RECIPE
-    .pop-rec {
+    .pop-reci {
         .row_big {
             width: 100%;
             .col {
@@ -399,6 +445,24 @@ export default {
                 padding: 0;
                 .my_card {
                     background-color: white;
+                    .over {
+                        position: absolute;
+                        height:100%;
+                        width:100%;
+                        top:0;
+                        left:0;
+                        background-image: linear-gradient(rgba(252, 117, 37, 0.6), $orange);
+                        div {
+                            width: 40px;
+                            height: 40px;
+                            color: black;
+                            background-color: white;
+                        }
+                        h5 {
+                            font-size: 1.3rem;
+                            color: white;
+                        }
+                    }
                     h5 {
                         font-size: 1.1rem;
                         color: $text-grey;
@@ -425,6 +489,24 @@ export default {
             width: 100%;
             .col {
                 width: calc(100% / 2);
+                .over {
+                    position: absolute;
+                    height:100%;
+                    width:100%;
+                    top:0;
+                    left:0;
+                    background-image: linear-gradient(rgba(252, 117, 37, 0.6), $orange);
+                    div {
+                        width: 30px;
+                        height: 30px;
+                        color: black;
+                        background-color: white;
+                    }
+                    h3 {
+                        font-size: .7rem;
+                        color: white;
+                    }
+                }
             }
         }
         
@@ -435,11 +517,20 @@ export default {
         .row {
             gap: 40px;
             .col {
-                padding: 10px 50px;
                 width: calc((100% / 4) - 30px);
                 background-color: white;
+                img {
+                    height: 80px;
+                }
                 h6 {
-                    font-size: .7rem;
+                    font-size: .8rem;
+                    
+                }
+                &:hover {
+                    h6 {
+                        background-color: $orange;
+                        color: white;
+                    }
                 }
             }
         }
@@ -518,8 +609,9 @@ export default {
                         left: 50%;
                         top: 48%;
                         transform: translate(-50%, -50%);
-                        font-size: 90%;
+                        font-size: 120%;
                         letter-spacing: 2px;
+                        line-height: 2rem;
                     }
                 }
                 .city {
@@ -567,6 +659,9 @@ export default {
                         padding: 15px;
                         border: .5px solid $silver;
                         font-size: 1rem;
+                        &.active {
+                            background-color: white;
+                        }
                     }
                     .rounded-circle {
                         width: 55px;
